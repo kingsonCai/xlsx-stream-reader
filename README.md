@@ -30,7 +30,7 @@ Options
 
 -------
 ```javascript
-const XlsxStreamReader = require("xlsx-stream-reader");
+const XlsxStreamReader = require("xlsx-stream-reader-cp");
 
 var workBookReader = new XlsxStreamReader();
 workBookReader.on('error', function (error) {
