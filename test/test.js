@@ -6,6 +6,18 @@ const assert = require('assert')
 const path = require('path')
 
 describe('The xslx stream parser', function () {
+  it('parses large files with tmpdir', function (done) {
+    const tmpdir = path.resolve(process.cwd(),'~tmp')
+    var workBookReader = new XlsxStreamReader({tmpOption:{tmpdir}})
+    fs.createReadStream(path.join(__dirname, 'big.xlsx')).pipe(workBookReader)
+    workBookReader.on('worksheet', function (workSheetReader) {
+      workSheetReader.on('end', function () {
+        assert(workSheetReader.rowCount === 80000)
+        done()
+      })
+      workSheetReader.process()
+    })
+  })
   it('parses large files', function (done) {
     var workBookReader = new XlsxStreamReader()
     fs.createReadStream(path.join(__dirname, 'big.xlsx')).pipe(workBookReader)
