@@ -3,6 +3,8 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ======
+fork from DaSpawn/xlsx-stream-reader for publish a fixed and strengthen version(after xlsx-stream-reader@1.1.1)
+======
 
 Memory efficinet minimalist streaming XLSX reader that can handle piped 
 streams as input. Events are emmited while reading the stream.
